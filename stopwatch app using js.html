@@ -11,11 +11,15 @@
         </div>
 
         <script>
-            window.onload = function () {
-                var seconds = 0;
+            var seconds = 0;
                 var milliseconds = 0;
-                var appendMilliseconds = document.getElementById("milliseconds");
-                var appendSeconds = document.getElementById("seconds");
+                var appendMilliseconds;
+                var appendSeconds;
+                var Interval;
+            window.onload = function () {
+                 
+                 appendMilliseconds = document.getElementById("milliseconds");
+                 appendSeconds = document.getElementById("seconds");
                 var buttonStart = document.getElementById("button-start");
                 var buttonStop = document.getElementById("button-stop");
                 var buttonReset = document.getElementById("button-reset");
@@ -32,8 +36,8 @@
 
                 buttonReset.onclick = function() {
                     clearInterval(Interval);
-                    milliseconds = "00";
-                    seconds = "00";
+                    milliseconds = 0;
+                    seconds = 0;
                     appendMilliseconds.innerHTML = milliseconds;
                     appendSeconds.innerHTML = seconds;
                 }
@@ -42,10 +46,10 @@
                 milliseconds++;
 
                 if (milliseconds <= 9) {
-                    appendMilliseconds.innerHTML ="0" = milliseconds;
+                    appendMilliseconds.innerHTML ="0" + milliseconds;
                 }
                 if (milliseconds > 9) {
-                    appendMilliseconds.innerHTML =milliseconds;
+                    appendMilliseconds.innerHTML = milliseconds;
                 }
                 if (milliseconds > 99) {
                     seconds++;
